@@ -5,49 +5,32 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-window.onload = () => {
-  document.querySelector("#btn").addEventListener("click", () => {
-    document.querySelector("#The-excuse").innerHTML = generateExcuse();
-  });
-  console.log("Hello Rigo from the console!");
+window.onload = function() {
+  document.querySelector("#excuse").innerHTML = generate();
 };
 
-let generateExcuse = () => {
-  let pronoun = ["Mi", "Un", "El"];
-  let subject = [" vecino", " rata", " perro", " chofer", " comediante"];
-  let action = [
-    " agarró mi",
-    " me lanzó",
-    " me grito",
-    " robó mi",
-    " mordió",
-    " se llevó"
+function generate() {
+  let who = ["the dog", "my granma", "his turtle", "my bird"];
+  let action = ["ate", "peed", "crushed", "broke"];
+  let what = ["eat", "pissed", "crushed", "broked"];
+  let when = [
+    "before the class",
+    "right in time",
+    "when I finished",
+    "during my lunch",
+    "while I was praying"
   ];
-  let possetion = [" tarea", " coche", " zapato", " cartera"];
-  let where = [
-    " del baño",
-    " en la oficina",
-    " de la casa",
-    " de la sala",
-    " en la avenida",
-    " a mitad de la calle"
-  ];
-  let pronounIndex = Math.floor(Math.random() * pronoun.length);
-  let subjectIndex = Math.floor(Math.random() * subject.length);
-  let actionIndex = Math.floor(Math.random() * action.length);
-  let possetionIndex = Math.floor(Math.random() * possetion.length);
-  let whereIndex = Math.floor(Math.random() * where.length);
-
+  let randomWho = Math.floor(Math.random() * who.length);
+  let randomAction = Math.floor(Math.random() * action.length);
+  let randomWhat = Math.floor(Math.random() * what.length);
+  let randomWhen = Math.floor(Math.random() * when.length);
   return (
-    pronoun[pronounIndex] +
-    "" +
-    subject[subjectIndex] +
-    "" +
-    action[actionIndex] +
-    "" +
-    possetion[possetionIndex] +
-    "" +
-    where[whereIndex] +
-    ""
+    who[randomWho] +
+    " " +
+    action[randomAction] +
+    " " +
+    what[randomWhat] +
+    " " +
+    when[randomWhen]
   );
-};
+}
